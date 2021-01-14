@@ -13,26 +13,26 @@
     <param-name>contextConfigLocation</param-name>
     <param-value>me.junsu.AppConfig</param-value>
   </context-param>
-  <filter>
-    <filter-name>filter</filter-name>
-    <filter-class>me.junsu.MyFilter</filter-class>
-  </filter>
-
-  <filter-mapping>
-    <filter-name>filter</filter-name>
-    <servlet-name>HelloServlet</servlet-name>
-  </filter-mapping>
 
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
 
   <servlet>
-    <servlet-name>HelloServlet</servlet-name>
-    <servlet-class>me.junsu.HelloServlet</servlet-class>
+    <servlet-name>dispatcher</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <init-param>
+      <param-name>contextClass</param-name>
+      <param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext</param-value>
+    </init-param>
+    <init-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value>me.junsu.WebConfig</param-value>
+    </init-param>
   </servlet>
+  
   <servlet-mapping>
-    <servlet-name>HelloServlet</servlet-name>
-    <url-pattern>/hello</url-pattern>
+    <servlet-name>dispatcher</servlet-name>
+    <url-pattern>/app/*</url-pattern>
   </servlet-mapping>
 </web-app>
