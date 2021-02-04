@@ -18,6 +18,6 @@ public class WebApplication implements WebApplicationInitializer {
 
         DispatcherServlet dispatcherServlet = new DispatcherServlet(webApplicationContext);
         ServletRegistration.Dynamic app = servletContext.addServlet("app", dispatcherServlet);
-        app.addMapping("/app/*");
+        app.addMapping("/");
     }
 }
